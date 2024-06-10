@@ -10,10 +10,8 @@ radius = 0.809076
 script = ExtResource("1_cd2a1")
 
 [node name="Pivot" type="Node3D" parent="."]
-visible = false
 
 [node name="Character" parent="Pivot" instance=ExtResource("1_ggbg3")]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_fq31f")
