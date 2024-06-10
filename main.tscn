@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://g7h1xtxlch3n" path="res://player.tscn" id="1_ig04u"]
 [ext_resource type="Script" path="res://main.gd" id="1_r810f"]
-[ext_resource type="PackedScene" uid="uid://bx447un4do6yn" path="res://mob.tscn" id="2_w0rxc"]
+
+[ext_resource type="PackedScene" uid="uid://gkhj1pfus6nf" path="res://mob.tscn" id="2_w0rxc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fcx3e"]
 size = Vector3(60, 2, 60)
@@ -29,6 +30,8 @@ mob_scene = ExtResource("2_w0rxc")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape3D_fcx3e")
