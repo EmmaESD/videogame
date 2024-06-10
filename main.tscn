@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://g7h1xtxlch3n" path="res://player.tscn" id="1_ig04u"]
 [ext_resource type="Script" path="res://main.gd" id="1_r810f"]
+
 [ext_resource type="PackedScene" uid="uid://gkhj1pfus6nf" path="res://mob.tscn" id="2_w0rxc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fcx3e"]

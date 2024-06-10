@@ -1,5 +1,6 @@
 extends CharacterBody3D
 signal squashed
+
 # Minimum speed of the mob in meters per second.
 @export var min_speed = 10
 # Maximum speed of the mob in meters per second.
