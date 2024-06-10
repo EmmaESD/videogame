@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=3 format=3 uid="uid://d3piy1lmamufm"]
+=======
+[gd_scene load_steps=3 format=3 uid="uid://cduaqe027lufq"]
+>>>>>>> player_scene
 
 [ext_resource type="PackedScene" uid="uid://bt5drw3cowmd" path="res://art/player.glb" id="1_x4a38"]
 
