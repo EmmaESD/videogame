@@ -28,7 +28,7 @@ script = ExtResource("1_r810f")
 mob_scene = ExtResource("2_w0rxc")
 
 [node name="Ground" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 collision_layer = 4
 collision_mask = 0
 
@@ -48,7 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
-fov = 19.0
+fov = 39.6
 
 [node name="Player" parent="." instance=ExtResource("1_ig04u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -81,4 +81,5 @@ transform = Transform3D(-0.11345, -0.000783443, 0.993543, 0, 1, 0.000788534, -0.
 wait_time = 0.5
 autostart = true
 
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
