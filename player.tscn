@@ -8,10 +8,9 @@ radius = 1.16743
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_uyh6d"]
 height = 0.0682661
-radius = 1.10832
+radius = 1.03235
 
 [node name="Player" type="CharacterBody3D"]
-collision_layer = 2
 collision_mask = 6
 script = ExtResource("1_cd2a1")
 

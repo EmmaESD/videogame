@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1oh1ggod2u2p"]
+[gd_scene load_steps=12 format=3 uid="uid://b1oh1ggod2u2p"]
 
 [ext_resource type="PackedScene" uid="uid://g7h1xtxlch3n" path="res://player.tscn" id="1_ig04u"]
 [ext_resource type="Script" path="res://main.gd" id="1_r810f"]
 [ext_resource type="PackedScene" uid="uid://gkhj1pfus6nf" path="res://mob.tscn" id="2_w0rxc"]
+[ext_resource type="FontFile" uid="uid://bdy1h5f8mphuh" path="res://fonts/Montserrat-Medium.ttf" id="4_wp0i7"]
+[ext_resource type="Script" path="res://ScoreLabel.gd" id="5_bhh2d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fcx3e"]
 size = Vector3(60, 2, 60)
@@ -22,6 +24,10 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
+
+[sub_resource type="Theme" id="Theme_oy6jg"]
+default_font = ExtResource("4_wp0i7")
+default_font_size = 22
 
 [node name="Main" type="Node"]
 script = ExtResource("1_r810f")
@@ -54,6 +60,7 @@ fov = 39.6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Cylinders" type="Node3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cylinders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 1, 20)
@@ -75,7 +82,7 @@ mesh = SubResource("CylinderMesh_rxvg3")
 curve = SubResource("Curve3D_c8dbs")
 
 [node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath"]
-transform = Transform3D(-0.11345, -0.000783443, 0.993543, 0, 1, 0.000788534, -0.993544, 8.94592e-05, -0.11345, 12.1365, 0.0100327, 17.9231)
+transform = Transform3D(-0.113449, -0.000783444, 0.993543, -2.91038e-11, 1, 0.000788534, -0.993544, 8.94582e-05, -0.113449, 12.1365, 0.0100327, 17.9231)
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -83,9 +90,12 @@ autostart = true
 
 [node name="UserInterface" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_oy6jg")
 
 [node name="ScoreLabel" type="Label" parent="UserInterface"]
 layout_mode = 0
@@ -95,6 +105,31 @@ offset_right = 97.0
 offset_bottom = 52.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Score: 0"
+script = ExtResource("5_bhh2d")
+
+[node name="Retry" type="ColorRect" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.415686)
+
+[node name="Label" type="Label" parent="UserInterface/Retry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.5
+offset_top = -14.0
+offset_right = 193.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Appuyez sur Entrée pour réessayer"
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
